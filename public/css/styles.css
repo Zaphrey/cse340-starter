@@ -8,7 +8,10 @@
   --nav-color: white;
   --button-color: #5FA8D8;
   --hero-text-color: #245474d0;
+  --detail-background: rgb(230, 230, 230);
+  --detail-background-other: rgb(214, 214, 214);
 }
+
 *,
 *:before,
 *:after {
@@ -53,11 +56,18 @@ nav li {
   flex-grow: 1;
   background-color: var(--nav-background);
   color: var(--nav-color);
-  padding: 1em 0.5em;
   text-align: center;
 }
 
-nav li:hover {
+nav a {
+  color: var(--nav-color);
+  display: block;
+  padding: 1em 0.5em;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
   background-color: var(--nav-hover);
 }
 
@@ -155,8 +165,43 @@ nav li:hover {
   margin: 1em 0;
 }
 
+/* 
+.vehicle-detail>img {
+  grid-column: 1/2;
+} */
+
+.vehicle-detail img {
+  width: 100%;
+  margin: auto 0;
+  padding: 1em;
+}
+
+.detail ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.detail-header {
+  background-color: var(--button-color);
+  margin: 0 1em;
+  padding: 1em;
+  font-size: larger;
+  text-align: center;
+}
+
+.detail ul li {
+  background-color: var(--detail-background);
+  margin: 1em;
+  padding: 0.5em;
+  font-size: large;
+}
+
+.detail ul li:nth-child(even) {
+  background-color: var(--detail-background-other);
+}
+
 /* CSS for larger views */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   body {
     background-image: url("/images/site/checkerboard.jpg");
     background-size: 20em 20em;
@@ -167,11 +212,39 @@ nav li:hover {
     border: 0.5em solid var(--button-color);
     padding: 0.5em;
     background-color: white;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 
   #content {
     flex-direction: row;
+  }
+
+  #inv-display li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #inv-display li a {
+    grid-column: 1/2;
+  }
+
+  #inv-display li div {
+    grid-column: 2/3;
+  }
+
+  .vehicle-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .vehicle-detail>img {
+    grid-column: 1/2;
+    max-width: 100%;
+  }
+
+  .detail {
+    grid-column: 2/3;
+    background-color: transparent;
   }
 }

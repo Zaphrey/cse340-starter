@@ -64,4 +64,25 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+/* **************************************
+* Build the detail view
+* ************************************ */
+
+Util.buildDetailView = async (data) => {
+  let markup = "<div class=\"vehicle-detail\">"
+  markup += `<img src="${data.inv_image}" alt="a picture of a ${data.inv_year} ${data.inv_make} ${data.inv_model}">`
+  markup += '<div class="detail">'
+  + `<div class="detail-header">${data.inv_year} ${data.inv_make} ${data.inv_model} Details</div>`
+  + "<ul>"
+  + `<li>Price: $${new Intl.NumberFormat('en-US').format(data.inv_price)}</li>`
+  + `<li>Description: ${data.inv_description}</li>`
+  + `<li>Color: ${data.inv_color}</li>`
+  + `<li>Mileage: ${new Intl.NumberFormat('en-US').format(data.inv_miles)}</li>`
+  + "</ul>"
+  + "</div>"
+  markup += "</div>"
+
+  return markup
+}
+
 module.exports = Util
