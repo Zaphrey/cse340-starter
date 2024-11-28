@@ -10,6 +10,8 @@
   --hero-text-color: #245474d0;
   --detail-background: rgb(230, 230, 230);
   --detail-background-other: rgb(214, 214, 214);
+  --valid: rgb(240, 254, 240);
+  --invalid: rgb(255, 206, 206);
 }
 
 *,
@@ -198,6 +200,69 @@ nav a:hover {
 
 .detail ul li:nth-child(even) {
   background-color: var(--detail-background-other);
+}
+
+#messages ul {
+  background-color: var(--detail-background);
+  border-radius: 4px;
+  padding: 1em;
+  list-style-type: none;
+}
+
+#loginContainer {
+  margin: 0px auto;
+  font-size: larger;
+  max-width: 500px;
+  background-color: var(--detail-background-other);
+  border-radius: 4px;
+  padding: 0.5em;
+}
+
+#loginContainer span {
+  display: block;
+  margin: 1em;
+}
+
+input {
+  display: block;
+  padding: 0.25em;
+  font-size: large;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 4px;
+  border-style: none;
+  padding: 0.5em;
+}
+
+label {
+  display: block;
+  margin: 1em;
+}
+
+label:hover {
+  border-style: 5px solid var(--button-color);
+}
+
+label:has(input[type="submit"]) {
+  margin: 1em auto;
+  width: 20ch;
+}
+
+input[type="submit"] {
+  background-color: var(--button-color);
+}
+
+input[type="submit"]:hover {
+  color: white;
+  background-color: var(--hero-text-color);
+}
+
+label:required:invalid, input:focus:invalid {
+  background-color: var(--invalid);
+}
+
+input:required:valid {
+  background-color: var(--valid);
 }
 
 /* CSS for larger views */
