@@ -223,7 +223,7 @@ nav a:hover {
   margin: 1em;
 }
 
-input {
+input, select, textarea {
   display: block;
   padding: 0.25em;
   font-size: large;
@@ -232,11 +232,16 @@ input {
   border-radius: 4px;
   border-style: none;
   padding: 0.5em;
+  background-color: white;
 }
 
 label {
   display: block;
   margin: 1em;
+}
+
+select:hover {
+  background-color: var(--detail-background);
 }
 
 label:hover {
@@ -257,11 +262,12 @@ input[type="submit"]:hover {
   background-color: var(--hero-text-color);
 }
 
-label:required:invalid, input:focus:invalid {
+label:required:invalid, input:focus:invalid, textarea:focus:invalid {
   background-color: var(--invalid);
 }
 
-input:required:valid {
+input:required:valid,
+textarea:required:valid {
   background-color: var(--valid);
 }
 
