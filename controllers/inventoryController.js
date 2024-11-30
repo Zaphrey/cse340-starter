@@ -42,7 +42,6 @@ invCont.buildDetailByInvId = async (req, res, next) => {
 
 invCont.buildManagementView = async (req, res, next) => {
   let nav = await utilities.getNav()
-  req.flash("notice", "hello, world!")
 
   res.render("./inventory/management", {
     title: "Management",
@@ -87,7 +86,7 @@ invCont.buildInventoryView = async (req, res) => {
 
 invCont.addClassification = async (req, res) => {
   const { classification_name } = req.body
-  console.log(req.body)
+
   let result = await invModel.addClassificationToDatabase(classification_name)
 
   if (result === true) {
@@ -105,7 +104,7 @@ invCont.addClassification = async (req, res) => {
 
 invCont.addInventory = async (req, res) => {
   let { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id } = req.body
-  console.log(req.body)
+
   if (!inv_image) {
     inv_image = "/images/vehicles/no-image.png"
   }
@@ -113,7 +112,7 @@ invCont.addInventory = async (req, res) => {
   if (!inv_thumbnail) {
     inv_thumbnail = "/images/vehicles/no-image-tn.png"
   }
-  console.log("Hello, world!")
+
   let result = await invModel.addInventoryToDatabase(inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id)
   
   if (result === true) {

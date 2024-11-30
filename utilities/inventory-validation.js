@@ -13,7 +13,7 @@ validate.classifcationRules = () => {
         .trim()
         .escape()
         .notEmpty()
-        .matches("/[a-zA-Z0-9]{1,}/")
+        .matches("[a-zA-Z0-9]{1,}")
         .withMessage("Classification must not be empty and cannot have spaces or special characters.")
     ]
 }
