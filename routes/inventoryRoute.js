@@ -5,10 +5,10 @@ const { classifcationRules, checkClassificationData, inventoryRules, checkInvent
 
 router.get("/type/:classificationId", handleErrors(buildByClassificationId))
 router.get("/detail/:inventoryId", handleErrors(buildDetailByInvId))
-router.get("/management", handleErrors(buildManagementView))
-router.get("/management/add-classification", handleErrors(buildNewClassificationView))
-router.post("/management/add-classification", classifcationRules(), checkClassificationData, handleErrors(addClassification))
-router.get("/management/add-inventory", handleErrors(buildInventoryView))
-router.post("/management/add-inventory", inventoryRules(), checkInventoryData, handleErrors(addInventory))
+router.get("/", handleErrors(buildManagementView))
+router.get("/add-classification", handleErrors(buildNewClassificationView))
+router.post("/add-classification", classifcationRules(), checkClassificationData, handleErrors(addClassification))
+router.get("/add-inventory", handleErrors(buildInventoryView))
+router.post("/add-inventory", inventoryRules(), checkInventoryData, handleErrors(addInventory))
 
 module.exports = router

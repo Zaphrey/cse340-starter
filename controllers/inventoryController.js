@@ -95,7 +95,7 @@ invCont.addClassification = async (req, res) => {
     req.flash("notice", `Something went wrong while adding "${ classification_name  }" to the database. ${ result }`)
   }
 
-  res.redirect("/inv/management/add-classification")
+  res.redirect("/inv/add-classification")
 }
 
 /* ***************************
@@ -121,7 +121,7 @@ invCont.addInventory = async (req, res) => {
     req.flash("notice", `Something went wrong while adding "${ inv_year } ${ inv_make } ${ inv_model }" to the database. ${ result }`)
   }
 
-  res.redirect("/inv/management/add-inventory")
+  res.redirect("/inv/add-inventory")
 }
 
 module.exports = invCont
