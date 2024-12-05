@@ -16,7 +16,7 @@
 </ul>
 <% } %>
 <div id="loginContainer">
-    <form action="/inv/add-classification" method="post">
+    <form action="/inv/addClassification" method="post">
         <span>Classification can only take in alphanumeric characters.</span>
         <label>Classification: <input type="text" name="classification_name" id="classification_name" value="<%= locals.classification_name %>" pattern="^[a-zA-Z0-9]+$" required></label>
         <label><input type="submit" name="submit" id="submit"></label>
