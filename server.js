@@ -10,6 +10,7 @@ const pool = require('./database/')
 const express = require("express")
 const env = require("dotenv").config()
 const app = express()
+const cookieParser = require("cookie-parser")
 const bodyParser = require("body-parser")
 const static = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
@@ -42,6 +43,9 @@ app.use(function(req, res, next){
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * View engine and templates
