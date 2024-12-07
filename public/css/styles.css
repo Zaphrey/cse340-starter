@@ -13,6 +13,8 @@
   --tools-hover: rgb(178, 178, 178);
   --valid: rgb(240, 254, 240);
   --invalid: rgb(255, 206, 206);
+  --show-password-color: #535353;
+  --show-password-color-hover: #3b3b3b;
 }
 
 *,
@@ -110,6 +112,10 @@ nav a:hover {
 #hero-info h2 {
   color: black;
   margin: 0.5rem 0.5rem;
+}
+
+h3 {
+  margin: 1em;
 }
 
 #hero-attributes {
@@ -259,10 +265,6 @@ select:hover {
   background-color: var(--detail-background);
 }
 
-label:hover {
-  border-style: 5px solid var(--button-color);
-}
-
 label:has(input[type="submit"]) {
   margin: 1em auto;
   width: 20ch;
@@ -270,6 +272,9 @@ label:has(input[type="submit"]) {
 
 input[type="submit"] {
   background-color: var(--button-color);
+  margin: 1em;
+  width: 100%;
+  max-width: 200px;
 }
 
 input[type="submit"]:hover {
@@ -295,7 +300,8 @@ textarea:required:valid {
 }
 
 #password-button {
-  background-color: var(--button-color);
+  background-color: var(--show-password-color);
+  color: white;
   padding: 5px;
   border-radius: 4px;
   width: 100px;
@@ -305,8 +311,7 @@ textarea:required:valid {
 
 #password-button:hover {
   text-decoration: underline;
-  color: white;
-  background-color: var(--hero-text-color);
+  background-color: var(--show-password-color-hover);
 }
 
 /* CSS for larger views */
