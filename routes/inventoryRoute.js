@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { buildByClassificationId, buildDetailByInvId, buildManagementView, buildNewClassificationView, addClassification, buildInventoryView, addInventory, getInventoryJSON, editInventory, updateInventory, buildDeleteView, deleteInventoryFromId } = require("../controllers/inventoryController");
-const { handleErrors } = require("../utilities");
+const { handleErrors, validateUser } = require("../utilities");
 const { classifcationRules, checkClassificationData, inventoryRules, checkInventoryData, checkUpdateData } = require("../utilities/inventory-validation");
 
 // Deliver a view that contains a list of vehicles dependant on the classification_id
@@ -10,33 +10,33 @@ router.get("/type/:classificationId", handleErrors(buildByClassificationId))
 router.get("/detail/:inventoryId", handleErrors(buildDetailByInvId))
 
 // Deliver management view
-router.get("/", handleErrors(buildManagementView))
+router.get("/", validateUser, handleErrors(buildManagementView))
 
 // Deliver classification addition form
-router.get("/addClassification", handleErrors(buildNewClassificationView))
+router.get("/addClassification", validateUser, handleErrors(buildNewClassificationView))
 
 // Add new classification to classifications table
-router.post("/addClassification", classifcationRules(), checkClassificationData, handleErrors(addClassification))
+router.post("/addClassification", validateUser, classifcationRules(), checkClassificationData, handleErrors(addClassification))
 
 // Deliver inventory addition form
-router.get("/addInventory", handleErrors(buildInventoryView))
+router.get("/addInventory", validateUser, handleErrors(buildInventoryView))
 
 // Add new vehicle to inventory
-router.post("/addInventory", inventoryRules(), checkInventoryData, handleErrors(addInventory))
+router.post("/addInventory", validateUser, inventoryRules(), checkInventoryData, handleErrors(addInventory))
 
 // Get inventory by classification id
-router.get("/getInventory/:classification_id", handleErrors(getInventoryJSON))
+router.get("/getInventory/:classification_id", validateUser, handleErrors(getInventoryJSON))
 
 // Route for editing inventory items
-router.get("/edit/:inventory_id", handleErrors(editInventory))
+router.get("/edit/:inventory_id", validateUser, handleErrors(editInventory))
 
 // Route for updaing inventory items
-router.post("/update", inventoryRules(), checkUpdateData, handleErrors(updateInventory))
+router.post("/update", validateUser, inventoryRules(), checkUpdateData, handleErrors(updateInventory))
 
 // Route for delivering inventory deletion view
-router.get("/delete/:inventory_id", handleErrors(buildDeleteView))
+router.get("/delete/:inventory_id", validateUser, handleErrors(buildDeleteView))
 
-// DELETE route for deleting items from the inventory.
-router.post("/delete/", handleErrors(deleteInventoryFromId))
+// Route for deleting items from the inventory.
+router.post("/delete/", validateUser, handleErrors(deleteInventoryFromId))
 
 module.exports = router

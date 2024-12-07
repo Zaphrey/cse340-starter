@@ -10,6 +10,7 @@
   --hero-text-color: #245474d0;
   --detail-background: rgb(230, 230, 230);
   --detail-background-other: rgb(214, 214, 214);
+  --tools-hover: rgb(178, 178, 178);
   --valid: rgb(240, 254, 240);
   --invalid: rgb(255, 206, 206);
 }
@@ -71,6 +72,18 @@ nav a {
 nav a:hover {
   text-decoration: underline;
   background-color: var(--nav-hover);
+}
+
+
+#tools a {
+  background-color: var(--detail-background-other);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+#tools a:hover {
+  text-decoration: underline;
+  background-color: var(--tools-hover);
 }
 
 #hero {
@@ -209,16 +222,17 @@ nav a:hover {
   list-style-type: none;
 }
 
-#loginContainer {
+.form-container {
   margin: 0px auto;
   font-size: larger;
   max-width: 500px;
   background-color: var(--detail-background-other);
   border-radius: 4px;
   padding: 0.5em;
+  margin: 1em auto;
 }
 
-#loginContainer span {
+.form-container span {
   display: block;
   margin: 1em;
 }
@@ -238,6 +252,7 @@ input, select, textarea {
 label {
   display: block;
   margin: 1em;
+  position: relative;
 }
 
 select:hover {
@@ -269,6 +284,29 @@ label:required:invalid, input:focus:invalid, textarea:focus:invalid {
 input:required:valid,
 textarea:required:valid {
   background-color: var(--valid);
+}
+
+#password-button::before {
+  content: "Show"
+}
+
+#password-button.showing::before {
+  content: "Hide";
+}
+
+#password-button {
+  background-color: var(--button-color);
+  padding: 5px;
+  border-radius: 4px;
+  width: 100px;
+  margin: 1em 0;
+  text-align: center;
+}
+
+#password-button:hover {
+  text-decoration: underline;
+  color: white;
+  background-color: var(--hero-text-color);
 }
 
 /* CSS for larger views */

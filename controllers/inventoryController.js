@@ -98,7 +98,7 @@ invCont.addClassification = async (req, res) => {
     req.flash("notice", `Something went wrong while adding "${ classification_name  }" to the database. ${ result }`)
   }
 
-  res.redirect("/inv/add-classification")
+  res.redirect("/inv/addClassification")
 }
 
 /* ***************************
@@ -124,7 +124,7 @@ invCont.addInventory = async (req, res) => {
     req.flash("notice", `Something went wrong while adding "${ inv_year } ${ inv_make } ${ inv_model }" to the database. ${ result }`)
   }
 
-  res.redirect("/inv/add-inventory")
+  res.redirect("/inv/addInventory")
 }
 
 /* ***************************
@@ -260,22 +260,29 @@ invCont.deleteInventoryFromId = async function (req, res, next) {
   try {
     let nav = await utilities.getNav()
     const inv_id = req.body.inv_id
-    console.log(req.body)
     const result = await invModel.deleteInventory(inv_id)
 
     if (result) {
       req.flash("notice", `The item was successfully deleted.`)
       res.redirect("/inv/")
     } else {
-      req.flash("notice", "Sorry, the delete failed.")
+      const itemData = await invModel.getDetailsByInventoryId(inventory_id)
+      const itemName = `${inv_make} ${inv_model}`
+      req.flash("notice", `Sorry, the delete for ${ itemName } failed.`)
       res.status(501).render("inventory/delete-confirm", {
       title: "Delete Confirmation",
       nav,
       errors: null,
+      inv_id,
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_price,
       })
     }
   } catch (error) {
     console.error("deleteInventory " + error)
   }
 }
+
 module.exports = invCont
