@@ -32,7 +32,25 @@
 .siteName {
   font-family: Anta;
   font-weight: 600;
-  font-size: xxx-large;
+  font-size: xx-large;
+  margin: auto 0;
+}
+
+#tools {
+  display: flex;
+  flex-direction: column;
+}
+
+#tools a {
+  background-color: var(--detail-background-other);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+#tools a:hover {
+  text-decoration: underline;
+  background-color: var(--tools-hover);
 }
 
 body {
@@ -49,6 +67,8 @@ nav {
 }
 
 nav ul {
+  display: flex;
+  flex-direction: column;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -57,11 +77,12 @@ nav ul {
 
 nav li {
   list-style-type: none;
-  flex-direction: row;
+  flex-direction: column;
   flex-grow: 1;
   background-color: var(--nav-background);
   color: var(--nav-color);
-  text-align: center;
+  text-align: left;
+  border: 1px solid white;
 }
 
 nav a {
@@ -74,18 +95,6 @@ nav a {
 nav a:hover {
   text-decoration: underline;
   background-color: var(--nav-hover);
-}
-
-
-#tools a {
-  background-color: var(--detail-background-other);
-  padding: 10px;
-  border-radius: 4px;
-}
-
-#tools a:hover {
-  text-decoration: underline;
-  background-color: var(--tools-hover);
 }
 
 #hero {
@@ -319,6 +328,28 @@ textarea:required:valid {
   body {
     background-image: url("/images/site/checkerboard.jpg");
     background-size: 20em 20em;
+  }
+
+  nav ul {
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  nav li {
+    text-align: center;
+    border: none;
+  }
+
+  .siteName {
+    font-family: Anta;
+    font-weight: 600;
+    font-size: xxx-large;
+  }
+
+  #tools {
+    flex-direction: row;
   }
 
   #wrapper {
