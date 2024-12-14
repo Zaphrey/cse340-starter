@@ -16,6 +16,7 @@ const bodyParser = require("body-parser")
 const static = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
 const errorRoute = require("./routes/errorTestRoute")
+const favoriteRoute = require("./routes/favoriteRoute")
 const expressLayouts = require("express-ejs-layouts")
 const baseController = require("./controllers/baseController")
 const accountRoute = require("./routes/accountRoute")
@@ -65,6 +66,7 @@ app.set("layout", "./layouts/layout"); // Not at views root
 app.use(static)
 app.use("/inv", inventoryRoute)
 app.use("/account", accountRoute)
+app.use("/favorite", favoriteRoute);
 app.use("/", errorRoute)
 
 // index route

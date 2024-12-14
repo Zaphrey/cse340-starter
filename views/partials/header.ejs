@@ -4,6 +4,7 @@
     </span>
     <div id="tools">
         <% if (locals.accountData) {  %>
+            <a title="Click to view favorites" href="/favorite">Favorites</a>
             <a title="Click to manage account" href="/account">Welcome, <%- locals.accountData.account_firstname %>!</a>
             <a title="Click to log out" href="/account/logout">Logout</a>
         <% } else { %>

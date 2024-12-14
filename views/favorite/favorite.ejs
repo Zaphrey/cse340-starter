@@ -1,0 +1,21 @@
+<!-- Content Heading -->
+<% if (title) { %>
+<h1>
+    <%= title %>
+</h1>
+<% } else { res.redirect('/') } %>
+<!-- Message Block -->
+<%- messages() %>
+<% if (errors) { %>
+<ul class="notice">
+    <% errors.array().forEach(error=> { %>
+        <li>
+            <%= error.msg %>
+        </li>
+        <% }) %>
+</ul>
+<% } %>
+<%- grid %>
+<!-- <button value="1" class="favorite-button"><img alt="bookmark icon" width="30" height="30" src="../../images/site/bookmark.png"></button>
+<button value="2" class="favorite-button"><img alt="bookmark icon" width="30" height="30" src="../../images/site/bookmark.png"></button> -->
+<script src="../../js/favorite-controller.js"></script>

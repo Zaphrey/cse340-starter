@@ -200,7 +200,7 @@ h3 {
   grid-column: 1/2;
 } */
 
-.vehicle-detail img {
+.vehicle-detail > img {
   width: 100%;
   margin: auto 0;
   padding: 1em;
@@ -321,6 +321,17 @@ textarea:required:valid {
 #password-button:hover {
   text-decoration: underline;
   background-color: var(--show-password-color-hover);
+}
+
+.favorite-button {
+  width: 40px;
+  height: 40px;
+  margin: 0 1.25em;
+}
+
+.favorite-button img {
+  pointer-events: none;
+  filter: invert(52%) sepia(66%) saturate(329%) hue-rotate(161deg) brightness(104%) contrast(92%);
 }
 
 /* CSS for larger views */
